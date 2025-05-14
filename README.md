@@ -1,7 +1,7 @@
 # Doodle Predictor
 
 A fun, interactive web application that uses machine learning to predict what you're drawing in real-time. Built with Next.js, TensorFlow.js, and Tailwind CSS.
-
+Deployed at: https://doodle-predictor.vercel.app/
 ## Features
 
 - 🎨 Real-time drawing canvas
