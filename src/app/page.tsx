@@ -1,4 +1,3 @@
-import Image from "next/image";
 import DoodlePredictor from './components/DoodlePredictor';
 
 export default function Home() {

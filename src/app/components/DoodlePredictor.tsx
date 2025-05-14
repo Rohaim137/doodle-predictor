@@ -8,7 +8,6 @@ const CLASS_NAMES = ['cat', 'dog', 'apple', 'banana', 'car', 'house', 'tree', 'b
 
 export default function DoodlePredictor() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const previewCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const lastPosRef = useRef<{ x: number; y: number } | null>(null);
   const [model, setModel] = useState<tf.GraphModel | null>(null);
   const [prediction, setPrediction] = useState<number | null>(null);
