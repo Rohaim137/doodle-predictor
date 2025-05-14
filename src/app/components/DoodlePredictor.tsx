@@ -224,7 +224,7 @@ export default function DoodlePredictor() {
       {prediction !== null && probabilities && (
         <div className="flex flex-col items-center gap-4 w-full max-w-2xl mt-4">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            I think it's a <span className="uppercase">{CLASS_NAMES[prediction]}</span>!
+            I think it&apos;s a <span className="uppercase">{CLASS_NAMES[prediction]}</span>!
           </div>
           <div className="w-full bg-gray-800/50 p-6 rounded-xl shadow-xl border border-gray-700 backdrop-blur-sm">
             <h3 className="text-lg font-semibold text-blue-400 mb-4">Confidence Levels</h3>
