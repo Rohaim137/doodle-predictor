@@ -139,6 +139,58 @@ export default function DoodlePredictor() {
     lastPosRef.current = { x, y };
   };
 
+  // Add new touch event handlers
+  const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault(); // Prevent scrolling while drawing
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+
+    ctx.fillStyle = 'white';
+    ctx.beginPath();
+    ctx.arc(x, y, 2, 0, 2 * Math.PI);
+    ctx.fill();
+
+    lastPosRef.current = { x, y };
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault(); // Prevent scrolling while drawing
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    if (lastPosRef.current) {
+      ctx.beginPath();
+      ctx.moveTo(lastPosRef.current.x, lastPosRef.current.y);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    }
+
+    lastPosRef.current = { x, y };
+  };
+
+  const handleTouchEnd = () => {
+    lastPosRef.current = null;
+  };
+
   // Initialize black canvas on component mount
   useEffect(() => {
     if (canvasRef.current) {
@@ -185,9 +237,12 @@ export default function DoodlePredictor() {
             ref={canvasRef}
             width={280}
             height={280}
-            className="relative border-2 border-gray-700 bg-black cursor-crosshair rounded-lg"
+            className="relative border-2 border-gray-700 bg-black cursor-crosshair rounded-lg touch-none"
             onMouseMove={draw}
             onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           />
         </div>
       </div>
