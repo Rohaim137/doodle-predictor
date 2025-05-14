@@ -38,7 +38,7 @@ A fun, interactive web application that uses machine learning to predict what yo
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/doodle-predictor.git
+git clone https://github.com/Rohaim137/doodle-predictor.git
 cd doodle-predictor
 ```
 
@@ -72,26 +72,10 @@ yarn dev
 
 The prediction model is trained on the [Quick Draw dataset](https://github.com/googlecreativelab/quickdraw-dataset) and converted to TensorFlow.js format. It uses a convolutional neural network (CNN) architecture to recognize hand-drawn sketches.
 
-## Deployment
-
-The application is deployed on Vercel. You can deploy your own instance by:
-
-1. Fork this repository
-2. Create a new project on [Vercel](https://vercel.com)
-3. Connect your forked repository
-4. Deploy!
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
 - [Quick Draw Dataset](https://github.com/googlecreativelab/quickdraw-dataset) for the training data
 - [TensorFlow.js](https://www.tensorflow.org/js) for the machine learning capabilities
-- [Next.js](https://nextjs.org/) for the amazing web framework
+- [Next.js](https://nextjs.org/) for the web framework
 - [Vercel](https://vercel.com) for hosting
